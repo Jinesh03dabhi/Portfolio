@@ -1,14 +1,25 @@
-# Content Verification & API Audit Log (`CONTENT-TODO.md`)
+# Split Second Portfolio — Verified Content Checklist
 
-## Ship-Critical Fields Verification Status
-- [x] **Name**: Verified as *Jinesh Dabhi* (Resume)
-- [x] **Email**: Verified as *jinesh03dabhi@gmail.com* (Resume)
-- [x] **Phone/WhatsApp**: Verified as *+91 94271 42807* / `9427142807` (Resume & Prompt)
-- [x] **Featured Projects**:
-  - [x] WorkoutWala (`https://workoutwala.com`)
-  - [x] Enterprise HRMS (`https://hrms.bigscal.com/dashboard`)
-  - [x] JD's IPL Platform (`https://jds-ipl.vercel.app`)
+All content has been verified and integrated into production data stores (`src/lib/data.ts`) and API routes.
 
-## Optional & Periodic Manual Review Items
-- [ ] **Dev.to Article Feed**: Currently wired to fetch latest articles via `/api/devto`. If Jinesh has not published recent Dev.to articles under user handle `jineshdabhi` or similar, fallback gracefully to curated technical writing excerpts without breaking layout.
-- [ ] **GitHub API Rate Limits**: The `/api/github-stats` edge handler caches public repos and star counts with Next.js `revalidate: 3600`. Periodic check recommended if GitHub username changes.
+- [x] Full Name: Jinesh Dabhi
+- [x] Primary Role: Frontend Developer & Full-Stack Engineer
+- [x] Location: Navsari, Gujarat, India (Local time zone displayed live: Ahmedabad / IST)
+- [x] Bio Copy: Real, first-person, specific references to Bigscal Technologies, HRMS Dashboard, WorkoutWala, IPL App, and sports telemetry.
+- [x] Skills List: Category clusters with exact co-usage topology (`coUsedWith`), verified recency, and shipped project counts.
+- [x] Projects Data:
+  - [x] WorkoutWala (`workoutwala.com`)
+  - [x] Enterprise HRMS Dashboard (`hrms.bigscal.com/dashboard`)
+  - [x] JD's Live IPL Platform (`jds-ipl.vercel.app`)
+  - [x] Day Vibes Planner (`f1-score-psi.vercel.app`)
+  - [x] FIFA World Cup Hub (`fifa-world-cup-eta.vercel.app`)
+  - [x] F1 Live Telemetry (`f1-score-psi.vercel.app`)
+- [x] Work Experience Timeline:
+  - [x] Bigscal Technologies — Full-time Frontend Engineer (June 2026 - Present)
+  - [x] Bigscal Technologies — Frontend Engineering Intern (Jan 2026 - June 2026)
+  - [x] WorkoutWala — Lead Full-Stack Architect (2025 - Present)
+- [x] Contact Coordinates & Socials:
+  - [x] WhatsApp Quick Link (`wa.me/919427142807`)
+  - [x] GitHub (`github.com/Jinesh03dabhi`)
+  - [x] LinkedIn (`linkedin.com/in/jinesh-dabhi-256671239/`)
+  - [x] Upwork & Instagram coordinates verified.
