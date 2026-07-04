@@ -65,22 +65,22 @@ function TiltProjectCard({ project }: { project: Project }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      className="relative rounded-xl bg-surface border border-white/15 p-6 flex flex-col justify-between group overflow-hidden transition-shadow duration-100 hover:shadow-[0_10px_30px_rgba(0,212,255,0.15)] hover:border-[#00d4ff]/50"
+      className="relative rounded-xl bg-surface border border-border-main p-6 flex flex-col justify-between group overflow-hidden transition-shadow duration-100 hover:shadow-[0_10px_30px_var(--theme-electric)] hover:border-electric/50 shadow-sm"
     >
       {/* Photo-finish timing sweep on top border */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-100" />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-electric to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-100" />
 
       <div className="space-y-4">
         {/* Top Header */}
         <div className="flex items-start justify-between gap-2">
           <div>
-            <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-black border border-white/10 text-[#00d4ff] uppercase tracking-wider">
+            <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-bg border border-border-main text-electric uppercase tracking-wider">
               {project.category} // {project.year}
             </span>
-            <h3 className="text-2xl font-bold font-display text-white mt-2 group-hover:text-[#00d4ff] transition-colors duration-100">
+            <h3 className="text-2xl font-bold font-display text-text-main mt-2 group-hover:text-electric transition-colors duration-100">
               {project.title}
             </h3>
-            <p className="text-xs font-mono text-white/60">{project.subtitle}</p>
+            <p className="text-xs font-mono text-text-muted">{project.subtitle}</p>
           </div>
 
           <a
@@ -89,7 +89,7 @@ function TiltProjectCard({ project }: { project: Project }) {
             rel="noopener noreferrer"
             data-interactive
             data-cursor-label="Live"
-            className="p-2 rounded-full bg-black border border-white/15 text-white/80 hover:text-black hover:bg-[#00d4ff] hover:border-[#00d4ff] transition-all duration-100 shrink-0"
+            className="p-2 rounded-full bg-bg border border-border-main text-text-muted hover:text-white dark:hover:text-black hover:bg-electric hover:border-electric transition-all duration-100 shrink-0"
             aria-label={`Visit live URL for ${project.title}`}
           >
             <ExternalLink className="w-4 h-4" />
@@ -97,25 +97,25 @@ function TiltProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* Description */}
-        <p className="text-sm text-white/75 font-sans leading-relaxed">
+        <p className="text-sm text-text-muted font-sans leading-relaxed">
           {project.description}
         </p>
 
         {/* Performance / Metric Highlight */}
         {project.metrics && (
-          <div className="p-2.5 rounded bg-black/70 border-l-2 border-[#ff9500] flex items-center gap-2 text-xs font-mono text-white/90">
-            <Sparkles className="w-3.5 h-3.5 text-[#ff9500] shrink-0" />
+          <div className="p-2.5 rounded bg-bg/80 border-l-2 border-amber flex items-center gap-2 text-xs font-mono text-text-main shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-amber shrink-0" />
             <span>{project.metrics}</span>
           </div>
         )}
       </div>
 
       {/* Tech Stack Footer */}
-      <div className="pt-6 mt-6 border-t border-white/10 flex flex-wrap gap-1.5">
+      <div className="pt-6 mt-6 border-t border-border-subtle flex flex-wrap gap-1.5">
         {project.technologies.map((tech) => (
           <span
             key={tech}
-            className="text-[10px] font-mono px-2 py-1 rounded bg-black/50 border border-white/10 text-white/70"
+            className="text-[10px] font-mono px-2 py-1 rounded bg-bg/60 border border-border-subtle text-text-muted"
           >
             {tech}
           </span>
@@ -139,17 +139,17 @@ export default function Projects({ externalCategory }: ProjectsProps) {
     : PROJECTS.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <TimingGateReveal className="border-b border-white/10 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+    <section id="projects" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 transition-colors duration-200">
+      <TimingGateReveal className="border-b border-border-main pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <span className="text-xs font-mono text-[#00d4ff] tracking-widest uppercase block mb-1">
+          <span className="text-xs font-mono text-electric tracking-widest uppercase block mb-1">
             04 // VERIFIED SHIPPED REPOSITORIES
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold font-display text-white">
+          <h2 className="text-3xl sm:text-5xl font-bold font-display text-text-main">
             Production Showcases
           </h2>
         </div>
-        <p className="text-xs font-mono text-white/50 max-w-sm sm:text-right">
+        <p className="text-xs font-mono text-text-muted max-w-sm sm:text-right">
           Every project features photo-finish timing gates and clamped ±6deg 3D tilt kinematics.
         </p>
       </TimingGateReveal>
@@ -161,11 +161,10 @@ export default function Projects({ externalCategory }: ProjectsProps) {
             key={category}
             onClick={() => setSelectedCategory(category)}
             data-interactive
-            className={`relative px-5 py-2 rounded-full text-xs font-mono transition-colors duration-100 ${
-              selectedCategory === category
-                ? "text-black font-bold"
-                : "text-white/70 bg-surface border border-white/10 hover:text-white hover:border-white/30"
-            }`}
+            className={`relative px-5 py-2 rounded-full text-xs font-mono transition-colors duration-100 ${selectedCategory === category
+              ? "text-black dark:text-white font-bold border border-electric"
+              : "text-text-muted dark:text-white bg-surface border border-border-main hover:text-text-main hover:border-border-subtle shadow-xs"
+              }`}
           >
             {selectedCategory === category && (
               <motion.div
@@ -174,7 +173,7 @@ export default function Projects({ externalCategory }: ProjectsProps) {
                   duration: raceTiming.reactionCeiling,
                   ease: raceCurve.maxVelocity,
                 }}
-                className="absolute inset-0 bg-[#00d4ff] rounded-full -z-10 shadow-[0_0_15px_rgba(0,212,255,0.6)]"
+                className="absolute inset-0 bg-electric rounded-full -z-10 shadow-[0_0_15px_var(--theme-electric)]"
               />
             )}
             <span>{category} Systems</span>

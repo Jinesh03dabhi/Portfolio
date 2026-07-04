@@ -25,20 +25,20 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="border-t border-white/10 bg-[#0a0a0a] py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono text-white/50">
+    <footer className="border-t border-border-main bg-bg py-12 transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono text-text-muted">
         <div>
-          <span className="font-bold text-white font-display block sm:inline mr-2">
+          <span className="font-bold text-text-main font-display block sm:inline mr-2">
             {PERSONAL_INFO.name.toUpperCase()} // v2.0
           </span>
           <span>© {new Date().getFullYear()} Navsari, Gujarat, India.</span>
         </div>
 
         {/* Real-Time Ahmedabad Clock */}
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded bg-surface border border-white/10">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] animate-pulse" />
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded bg-surface border border-border-main shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
           <span>AHMEDABAD / IST TIME:</span>
-          <span className="text-white font-bold">{ahmedabadTime || "--:--:--"}</span>
+          <span className="text-text-main font-bold">{ahmedabadTime || "--:--:--"}</span>
         </div>
 
         <div>
@@ -48,3 +48,4 @@ export default function Footer() {
     </footer>
   );
 }
+

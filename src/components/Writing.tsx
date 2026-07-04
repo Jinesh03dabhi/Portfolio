@@ -71,17 +71,17 @@ export default function Writing() {
   }, []);
 
   return (
-    <section id="writing" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <TimingGateReveal className="border-b border-white/10 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+    <section id="writing" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 transition-colors duration-200">
+      <TimingGateReveal className="border-b border-border-main pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <span className="text-xs font-mono text-[#00d4ff] tracking-widest uppercase block mb-1">
+          <span className="text-xs font-mono text-electric tracking-widest uppercase block mb-1">
             07 // TECHNICAL THOUGHT LEADERSHIP
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold font-display text-white">
+          <h2 className="text-3xl sm:text-5xl font-bold font-display text-text-main">
             Engineering Dispatch
           </h2>
         </div>
-        <p className="text-xs font-mono text-white/50 max-w-sm sm:text-right">
+        <p className="text-xs font-mono text-text-muted max-w-sm sm:text-right">
           Insights on UI velocity, full-stack performance budgets, and sports engineering.
         </p>
       </TimingGateReveal>
@@ -89,7 +89,7 @@ export default function Writing() {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-pulse">
           {[1, 2, 3].map((idx) => (
-            <div key={idx} className="h-64 rounded-xl bg-surface border border-white/10 p-6" />
+            <div key={idx} className="h-64 rounded-xl bg-surface border border-border-main p-6 shadow-sm" />
           ))}
         </div>
       ) : (
@@ -101,12 +101,12 @@ export default function Writing() {
               target="_blank"
               rel="noopener noreferrer"
               data-interactive
-              className="p-6 rounded-xl bg-surface border border-white/15 flex flex-col justify-between group hover:border-[#00d4ff] hover:shadow-[0_10px_30px_rgba(0,212,255,0.1)] transition-all duration-100"
+              className="p-6 rounded-xl bg-surface border border-border-main flex flex-col justify-between group hover:border-electric hover:shadow-[0_10px_30px_var(--theme-electric)] transition-all duration-100 shadow-sm"
             >
               <div className="space-y-3">
-                <div className="flex items-center gap-4 text-[11px] font-mono text-white/50">
+                <div className="flex items-center gap-4 text-[11px] font-mono text-text-muted">
                   <span className="flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5 text-[#00d4ff]" />
+                    <Calendar className="w-3.5 h-3.5 text-electric" />
                     {new Date(article.published_at).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
@@ -114,32 +114,32 @@ export default function Writing() {
                     })}
                   </span>
                   <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-[#ff9500]" />
+                    <Clock className="w-3.5 h-3.5 text-amber" />
                     {article.reading_time_minutes} min read
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold font-display text-white group-hover:text-[#00d4ff] transition-colors duration-100 line-clamp-2">
+                <h3 className="text-xl font-bold font-display text-text-main group-hover:text-electric transition-colors duration-100 line-clamp-2">
                   {article.title}
                 </h3>
 
-                <p className="text-xs font-sans text-white/70 line-clamp-3 leading-relaxed">
+                <p className="text-xs font-sans text-text-muted line-clamp-3 leading-relaxed">
                   {article.description}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+              <div className="pt-6 mt-6 border-t border-border-subtle flex items-center justify-between">
                 <div className="flex flex-wrap gap-1">
                   {article.tag_list.slice(0, 2).map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] font-mono px-2 py-0.5 rounded bg-black text-white/60"
+                      className="text-[10px] font-mono px-2 py-0.5 rounded bg-bg text-text-muted border border-border-subtle"
                     >
                       #{tag}
                     </span>
                   ))}
                 </div>
-                <span className="text-xs font-mono text-[#00d4ff] flex items-center gap-1 group-hover:translate-x-1 transition-transform duration-100">
+                <span className="text-xs font-mono text-electric flex items-center gap-1 group-hover:translate-x-1 transition-transform duration-100">
                   Read <ExternalLink className="w-3.5 h-3.5" />
                 </span>
               </div>

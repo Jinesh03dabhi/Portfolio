@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { raceCurve, raceTiming } from "@/lib/motion";
 import { Menu, X, Terminal } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
@@ -31,7 +32,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-100 ${
         scrolled
-          ? "bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 py-3 shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+          ? "bg-bg/80 backdrop-blur-md border-b border-border-main py-3 shadow-[0_4px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
           : "bg-transparent py-5"
       }`}
     >
@@ -41,49 +42,55 @@ export default function Navbar() {
           href="#"
           data-interactive
           data-cursor-label="Start"
-          className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#00d4ff] rounded px-2 py-1"
+          className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-electric rounded px-2 py-1"
         >
-          <div className="w-8 h-8 rounded bg-[#121214] border border-white/20 flex items-center justify-center group-hover:border-[#00d4ff] transition-colors duration-100">
-            <Terminal className="w-4 h-4 text-[#00d4ff]" />
+          <div className="w-8 h-8 rounded bg-surface border border-border-main flex items-center justify-center group-hover:border-electric transition-colors duration-100 shadow-sm">
+            <Terminal className="w-4 h-4 text-electric" />
           </div>
           <div>
-            <span className="font-display font-bold tracking-tight text-white block text-sm leading-none">
+            <span className="font-display font-bold tracking-tight text-text-main block text-sm leading-none">
               JINESH DABHI
             </span>
-            <span className="font-mono text-[10px] text-white/50 tracking-widest uppercase block mt-0.5 group-hover:text-[#00d4ff] transition-colors duration-100">
+            <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase block mt-0.5 group-hover:text-electric transition-colors duration-100">
               Split Second v2
             </span>
           </div>
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1 bg-[#121214]/80 border border-white/10 rounded-full px-4 py-1.5 shadow-inner">
+        <nav className="hidden md:flex items-center gap-1 bg-surface/80 border border-border-main rounded-full px-4 py-1.5 shadow-inner">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
               href={item.href}
               data-interactive
-              className="px-3 py-1.5 rounded-full text-xs font-mono text-white/70 hover:text-white hover:bg-white/5 transition-all duration-100 focus:outline-none focus:ring-1 focus:ring-[#00d4ff]"
+              className="px-3 py-1.5 rounded-full text-xs font-mono text-text-muted hover:text-text-main hover:bg-text-main/5 transition-all duration-100 focus:outline-none focus:ring-1 focus:ring-electric"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* Right Status Indicator */}
-        <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded bg-black border border-white/10 text-[10px] font-mono text-white/60">
-          <span className="w-2 h-2 rounded-full bg-[#00d4ff] animate-pulse" />
-          <span>IAAF ≤100ms CEILING</span>
+        {/* Right Status Indicator & Theme Toggle */}
+        <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded bg-surface border border-border-main text-[10px] font-mono text-text-muted shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-electric animate-pulse" />
+            <span>IAAF ≤100ms CEILING</span>
+          </div>
         </div>
 
-        {/* Mobile Hamburger */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Navigation Menu"
-          className="md:hidden p-2 rounded bg-surface border border-white/10 text-white/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#00d4ff]"
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5 text-[#00d4ff]" /> : <Menu className="w-5 h-5" />}
-        </button>
+        {/* Mobile Hamburger & Theme Toggle */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Navigation Menu"
+            className="md:hidden p-2 rounded bg-surface border border-border-main text-text-main hover:text-electric focus:outline-none focus:ring-2 focus:ring-electric"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5 text-electric" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Dropdown */}
@@ -97,14 +104,14 @@ export default function Navbar() {
               duration: raceTiming.reactionCeiling,
               ease: raceCurve.maxVelocity,
             }}
-            className="md:hidden bg-[#121214] border-b border-white/10 px-6 py-4 space-y-2"
+            className="md:hidden bg-surface border-b border-border-main px-6 py-4 space-y-2 shadow-xl"
           >
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-sm font-mono text-white/80 hover:text-[#00d4ff] border-b border-white/5 transition-colors duration-100"
+                className="block py-2 text-sm font-mono text-text-main hover:text-electric border-b border-border-subtle transition-colors duration-100"
               >
                 {item.label}
               </a>
@@ -115,3 +122,4 @@ export default function Navbar() {
     </header>
   );
 }
+

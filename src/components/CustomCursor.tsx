@@ -71,12 +71,12 @@ export default function CustomCursor() {
       <div
         className={`w-full h-full rounded-full border transition-all duration-100 flex items-center justify-center ${
           isHovered
-            ? "border-[#00d4ff] bg-[#00d4ff]/10 scale-110 shadow-[0_0_12px_rgba(0,212,255,0.6)]"
-            : "border-white/50 bg-white/20"
+            ? "border-electric bg-electric/10 scale-110 shadow-[0_0_12px_var(--theme-electric)]"
+            : "border-text-main/40 bg-text-main/15 dark:border-white/50 dark:bg-white/20"
         }`}
       >
         {isHovered && hoverText && (
-          <span className="text-[9px] font-mono font-bold text-[#00d4ff] uppercase tracking-wider px-1">
+          <span className="text-[9px] font-mono font-bold text-electric uppercase tracking-wider px-1">
             {hoverText}
           </span>
         )}
@@ -84,3 +84,4 @@ export default function CustomCursor() {
     </motion.div>
   );
 }
+

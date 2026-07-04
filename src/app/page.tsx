@@ -14,7 +14,7 @@ import KonamiEgg from "@/components/KonamiEgg";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] selection:bg-[#00d4ff] selection:text-black">
+    <main className="min-h-screen bg-bg text-text-main selection:bg-electric selection:text-white dark:selection:text-black transition-colors duration-200">
       <CustomCursor />
       <Navbar />
       <KonamiEgg />
