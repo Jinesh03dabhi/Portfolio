@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "motion/react";
 import { raceCurve, raceTiming, driveVariants } from "@/lib/motion";
 import { PERSONAL_INFO } from "@/lib/data";
-import { ArrowUpRight, ShieldCheck, Zap } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Zap, FileText, Download } from "lucide-react";
 
 // Lazy-load 3D scene to never block first paint
 const LazyTrackScene = dynamic(() => import("./TrackScene"), {
@@ -130,6 +130,18 @@ export default function Hero() {
             >
               <span>Explore Shipped Work</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-100" />
+            </a>
+
+            <a
+              href={PERSONAL_INFO.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-interactive
+              className="px-6 py-3 rounded bg-surface border-2 border-electric/60 text-text-main font-display font-bold text-sm tracking-wide hover:border-electric hover:bg-electric/10 hover:shadow-[0_0_15px_var(--theme-electric)] transition-all duration-100 flex items-center gap-2 group shadow-sm"
+            >
+              <FileText className="w-4 h-4 text-electric group-hover:scale-110 transition-transform duration-100" />
+              <span>View Resume // CV</span>
+              <Download className="w-3.5 h-3.5 text-text-muted group-hover:text-electric group-hover:translate-y-0.5 transition-all duration-100 ml-0.5" />
             </a>
 
             <a

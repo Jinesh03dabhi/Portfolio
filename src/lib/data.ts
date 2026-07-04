@@ -46,6 +46,7 @@ export const PERSONAL_INFO = {
   phone: "+91 94271 42807",
   whatsappNumber: "9427142807",
   whatsappDefaultMsg: "Hi Jinesh, I saw your Split Second portfolio and would love to discuss a project!",
+  resume: "/resume.pdf",
   socials: {
     github: "https://github.com/Jinesh03dabhi",
     linkedin: "https://linkedin.com/in/jinesh-dabhi-baab84302",

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { raceCurve, raceTiming } from "@/lib/motion";
 import { Menu, X, Terminal } from "lucide-react";
+import { PERSONAL_INFO } from "@/lib/data";
 import { ThemeToggle } from "./ThemeToggle";
 
 const NAV_ITEMS = [
@@ -74,6 +75,15 @@ export default function Navbar() {
         {/* Right Status Indicator & Theme Toggle */}
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
+          <a
+            href={PERSONAL_INFO.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-interactive
+            className="px-3 py-1.5 rounded bg-electric/15 border border-electric text-[10px] font-mono font-bold text-electric hover:bg-electric hover:text-white dark:hover:text-black transition-all duration-100 shadow-sm"
+          >
+            RESUME // CV
+          </a>
           <div className="flex items-center gap-2 px-3 py-1.5 rounded bg-surface border border-border-main text-[10px] font-mono text-text-muted shadow-sm">
             <span className="w-2 h-2 rounded-full bg-electric animate-pulse" />
             <span>IAAF ≤100ms CEILING</span>
@@ -106,6 +116,15 @@ export default function Navbar() {
             }}
             className="md:hidden bg-surface border-b border-border-main px-6 py-4 space-y-2 shadow-xl"
           >
+            <a
+              href={PERSONAL_INFO.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-sm font-mono font-bold text-electric hover:text-text-main border-b border-border-subtle transition-colors duration-100"
+            >
+              RESUME // CV (PDF)
+            </a>
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
